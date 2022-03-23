@@ -1,0 +1,46 @@
+* {
+    font-family: Poppins, sans-serif;
+    color: blue;
+}
+
+body {
+    background-color: #f8f9fb;
+}
+
+body>div {
+    margin: 30px 15px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+}
+
+td>div {
+    text-align: center;
+    margin: 10px;
+    border-radius: 7px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+td>div>img {
+    border-radius: 7px 7px 0px 0px;
+    width: 100%;
+}
+
+td>div>div {
+    padding: 0px 10px 10px 10px;
+}
+
+/* title of the card */
+td>div>div>h3 {
+    font-size: 20px;
+    margin: 5px 0px;
+}
+
+td>div>div>p {
+    color: #777;
+    font-size: 14px;
+    margin: 0px;
+}
