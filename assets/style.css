@@ -1,22 +1,56 @@
 * {
     font-family: Poppins, sans-serif;
     color: blue;
+    box-sizing: border-box;
 }
 
 body {
     background-color: #f8f9fb;
+    margin: 0;
 }
 
-body>div {
-    margin: 30px 15px;
+body main section h1 {
+    margin: 15px 30px 0px 15px;
+    font-weight: 500;
     text-align: center;
 }
 
-table {
-    width: 100%;
+body main section h1::first-letter {
+    font-weight: 800;
+    font-size: 40px;
+    color: blue;
 }
 
-td>div {
+body main p {
+    color: #000;
+    text-align: center;
+    margin: auto 20px;
+}
+
+main {
+    min-height: 100vh;
+}
+
+#first-row {
+    margin: 0px auto 0px auto;
+}
+
+#second-row {
+    margin: 1rem auto;
+}
+
+#third-row {
+    margin: auto auto 0px auto;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.card {
+    width: 300px;
     text-align: center;
     margin: 10px;
     border-radius: 7px;
@@ -24,23 +58,73 @@ td>div {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-td>div>img {
+.card img {
     border-radius: 7px 7px 0px 0px;
     width: 100%;
+    height: 200px;
+    object-fit: contain;
 }
 
-td>div>div {
+.card div {
     padding: 0px 10px 10px 10px;
 }
 
 /* title of the card */
-td>div>div>h3 {
+.card div h3 {
     font-size: 20px;
     margin: 5px 0px;
 }
 
-td>div>div>p {
+.card div p {
     color: #777;
     font-size: 14px;
     margin: 0px;
+}
+
+.button {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 2px;
+}
+
+.button:hover {
+    background-color: #0066ff;
+}
+
+.button:active {
+    background-color: #0066ff;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+form table {
+    margin: 0px auto 20px auto;
+}
+
+form table input,
+form table textarea {
+    width: 100%;
+}
+
+footer {
+    background-color: lightgray;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #e5e5e5;
+}
+
+footer a {
+    display: inline-block;
+    padding: 7px;
+    margin: 20px auto;
+}
+
+footer a:hover,
+footer p {
+    color: #000;
 }
