@@ -10,23 +10,33 @@
 </head>
 
 <body>
+    <header class="navbar shadow-md navbar-sticky">
+        <nav>
+            <ul class="nav-menu">
+                <a class="navbar-brand" href="./index.html">Toko Sebelah</a>
+                <li><a class="nav-link" href="./index.html">Home</a></li>
+                <li><a class="nav-link" href="./another-page.html">Another Page</a></li>
+                <li><a class="nav-link" href="./about.html">About</a></li>
+                <li><a class="nav-link" href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
         <section>
-            <h1>Contact</h1>
-            <!-- contact form -->
-            <form action="contact.php" method="post">
+            <h1 class="title">Contact</h1>
+            <form action="" method="post">
                 <table>
                     <tr>
                         <td>Name</td>
-                        <td><input type="text" name="name"></td>
+                        <td><input class="form-control" type="text" name="name"></td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td><input type="text" name="email"></td>
+                        <td><input class="form-control" type="text" name="email"></td>
                     </tr>
                     <tr>
                         <td>Message</td>
-                        <td><textarea name="message" cols="30" rows="10"></textarea></td>
+                        <td><textarea class="form-control" name="message" cols="30" rows="10"></textarea></td>
                     </tr>
                     <tr>
                         <td></td>
@@ -39,11 +49,9 @@
         </section>
     </main>
 
-    <!-- footer -->
     <footer>
         <p>
-            <a href="./index.html">Home</a>
-            <a href="./about.html">About</a>
+            <a href=" ./about.html">About</a>
             <a href="./contact.html">Contact</a>
         </p>
         <p>&copy; Virgiawan 2022 All rights reserved</p>
