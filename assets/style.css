@@ -72,22 +72,25 @@ main {
 }
 
 .my-0 {
-    margin: 0px auto 0px auto;
+    margin: 0px auto 0px auto !important;
 }
 
 .my-1 {
-    margin: 1rem auto;
+    margin: 1rem auto !important;
 }
 
 .mb-0 {
-    margin: auto auto 0px auto;
+    margin: auto auto 0px auto !important;
+}
+
+.m-1 {
+    margin: 1rem !important;
 }
 
 .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 0 auto;
 }
 
 .card {
@@ -95,7 +98,6 @@ main {
     flex: 0 30%;
     width: 300px;
     text-align: center;
-    margin: 10px;
     border-radius: 7px;
     background-color: #fff;
 }
