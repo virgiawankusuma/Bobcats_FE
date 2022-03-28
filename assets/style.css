@@ -16,13 +16,13 @@ body {
     text-transform: uppercase;
     letter-spacing: .1rem;
     text-decoration: none;
-    margin: 0 1.5rem 0 0;
+    margin: 0 1.5em 0 0;
 }
 
 .navbar {
     background-color: #fff;
     margin: 0;
-    padding: 1rem;
+    padding: 1em;
 }
 
 .navbar-sticky {
@@ -39,7 +39,7 @@ body {
 }
 
 .nav-link {
-    padding: 1rem 0.5rem;
+    padding: 1em 0.5em;
     text-decoration: none;
 }
 
@@ -56,7 +56,7 @@ body {
 
 .title::first-letter {
     font-weight: 800;
-    font-size: 40px;
+    font-size: 3rem;
     color: blue;
 }
 
@@ -71,31 +71,17 @@ main {
     min-height: 100vh;
 }
 
-.my-0 {
-    margin: 0px auto 0px auto !important;
-}
-
-.my-1 {
-    margin: 1rem auto !important;
-}
-
-.mb-0 {
-    margin: auto auto 0px auto !important;
-}
-
-.m-1 {
-    margin: 1rem !important;
-}
-
 .container {
+    margin: 0em 1.5em 1em 1.5em;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .card {
-    /* margin-bottom: 2%; */
-    flex: 0 30%;
+    /* flex grow, shrink, basis*/
+    flex: 1 1 300px;
+    margin: 0em .8em 2em .8em;
     width: 300px;
     text-align: center;
     border-radius: 7px;
@@ -128,7 +114,7 @@ main {
 .list {
     height: 200px;
     overflow: auto;
-    margin: 0.5rem 1rem 1rem;
+    margin: 0.5em 1em 1em;
 }
 
 .shadow-md {
