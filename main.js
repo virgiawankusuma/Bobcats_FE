@@ -1,8 +1,2 @@
-const books = () => {
-    let name = "Atomic Habits";
-    let qty = "10";
-    let sentence = `There are ${qty} ${name} books left in stock`;
-    console.log(sentence);
-}
-
-books();
+const books = (name, qty) => { console.log(`There are ${qty} ${name} books left in stock`); };
+books('Atomic Habits', '10');
