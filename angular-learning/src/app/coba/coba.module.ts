@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
 import { CardTextModule } from '../card-text/card-text.module';
 
@@ -20,7 +19,6 @@ import { Coba6Component } from './coba6.component';
     Coba6Component
   ],
   imports: [
-    BrowserModule,
     CardTextModule
   ],
   exports:[
