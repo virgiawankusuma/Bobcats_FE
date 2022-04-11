@@ -1,0 +1,17 @@
+<div class="container my-5">
+    <div class="alert alert-info">
+        {{ textChangingStatus}} <span *ngIf="textChanged">{{yourName}}</span>
+    </div>
+    <div class="row">
+        <app-card1 [class]="col_6"></app-card1>
+        <app-card2 [class]="col_6"></app-card2>
+    </div>
+    <div class="row">
+        <!-- <input type="text" class="form-control" [(ngModel)]="yourName"> -->
+        <!-- <p *ngIf=""></p> -->
+        <div [class]="col_6">
+            <button [class]="btnChange" [disabled]="!allowedChangeButton" (click)="onCreatedCard()">Change</button>
+        </div>
+        <!-- <p class="col-12" [innerText]="allowedChangeButton"></p> -->
+    </div>
+</div>
