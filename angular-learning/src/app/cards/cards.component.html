@@ -1,17 +1,25 @@
 <div class="container my-5">
-    <div class="alert alert-info">
-        {{ textChangingStatus}} <span *ngIf="textChanged">{{yourName}}</span>
-    </div>
     <div class="row">
-        <app-card1 [class]="col_6"></app-card1>
-        <app-card2 [class]="col_6"></app-card2>
-    </div>
-    <div class="row">
-        <!-- <input type="text" class="form-control" [(ngModel)]="yourName"> -->
-        <!-- <p *ngIf=""></p> -->
-        <div [class]="col_6">
-            <button [class]="btnChange" [disabled]="!allowedChangeButton" (click)="onCreatedCard()">Change</button>
+        <div class="col-12 mb-4">
+            <div class="alert alert-info" *ngIf="!textChanged">
+                {{ textStatus}}
+            </div>
+            <div class="alert alert-success" *ngIf="textChanged">
+                {{ textStatus}}
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <button [class]="btnChange" (click)="onChangeText()">Change Text
+                        alert ^</button>
+                </div>
+                <div class="col-6 text-end">
+                    <button [class]="btnAdd" (click)="onAddCard()">Add Card</button>
+                    <button [class]="btnDelete" (click)="onDeleteCard()">Delete Card</button>
+                </div>
+            </div>
         </div>
-        <!-- <p class="col-12" [innerText]="allowedChangeButton"></p> -->
+    </div>
+    <div class="row">
+        <app-card [class]="col_6" *ngFor="let card of cards; let i = index" [id]="i"></app-card>
     </div>
 </div>

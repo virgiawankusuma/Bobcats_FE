@@ -8,25 +8,35 @@ import { Component, OnInit } from '@angular/core';
 export class CardsComponent implements OnInit {
 
   col_6 = 'col-6 mb-3';
-  btnChange = 'btn btn-primary';
-  allowedChangeButton = false;
-  textChangingStatus = 'No changes to the text.';
+
+  btnChange = 'btn btn-secondary';
+  btnAdd = 'btn btn-primary';
+  btnDelete = 'btn btn-danger ms-2';
+  
+  textStatus = 'No changes to the text.';
   textChanged = false;
-  yourName = 'bro';
+  cardName = 'Card';
+  cards = [
+    'Card 1', 'Card 2'
+  ]
 
 
-  constructor() { 
-    setTimeout(() => {
-      this.allowedChangeButton = true;
-    }, 3000);
-  }
+  constructor() {}
 
   ngOnInit(): void {
   }
 
-  onCreatedCard(){
-    this.textChangingStatus = 'Text changed ';
+  onChangeText(){
+    this.textStatus = 'Text changed';
     this.textChanged = true;
+  }
+
+  onAddCard(){
+    this.cards.push(this.cardName);
+  }
+
+  onDeleteCard(){
+    this.cards.pop();
   }
 
 }
