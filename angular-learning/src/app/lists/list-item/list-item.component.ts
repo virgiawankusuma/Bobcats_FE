@@ -6,7 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./list-item.component.css']
 })
 export class ListItemComponent implements OnInit {
-  @Input('listElement') list:any;
+  @Input('listElement')
+  element!: { type: string; name: string; content: string; };
 
   constructor() { }
 
