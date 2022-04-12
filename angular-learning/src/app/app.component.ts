@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-learning';
+  listItem = {
+    title: 'list title',
+    content: 'Just a list!'
+  };
 }

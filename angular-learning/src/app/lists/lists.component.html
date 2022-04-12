@@ -1,0 +1,15 @@
+<div class="container my-5">
+    <h1>Lists</h1>
+    <!-- <div class="row mb-5">
+        <div class="col-6">
+            <app-list-add (listCreated)="onListAdded($event)"></app-list-add>
+        </div>
+    </div> -->
+    <div class="row mb-5">
+        <div class="col-6">
+            <ol class="list-group list-group-numbered">
+                <app-list-item *ngFor="let list of lists" [listElement]="list"></app-list-item>
+            </ol>
+        </div>
+    </div>
+</div>
