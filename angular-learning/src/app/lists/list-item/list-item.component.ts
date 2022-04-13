@@ -12,7 +12,8 @@ import {
   AfterViewChecked,
   OnDestroy,
   ViewChild,
-  ElementRef
+  ElementRef,
+  ContentChild
 } from '@angular/core';
 
 @Component({
@@ -39,6 +40,9 @@ OnDestroy {
   @ViewChild('listBadge')
   listBadge!: ElementRef;
 
+  @ContentChild('contentParagraph')
+  contentParagraph!:ElementRef;
+
   constructor() {
     console.log(`constructer called!`);
   }
@@ -58,6 +62,7 @@ OnDestroy {
   
   ngAfterContentInit(): void {
     console.log(`ngAfterContentInit called!`);
+    console.log(`content paragraph: ${this.contentParagraph.nativeElement.innerText}`);
   }
   
   ngAfterContentChecked(): void {
@@ -67,6 +72,7 @@ OnDestroy {
   ngAfterViewInit(): void {
     console.log(`ngAfterViewInit called!`);
     console.log(`badge: ${this.listBadge.nativeElement.textContent}`);
+    console.log(`content paragraph: ${this.contentParagraph.nativeElement.innerText}`);
   }
 
   ngAfterViewChecked(): void {

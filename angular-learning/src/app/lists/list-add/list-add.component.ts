@@ -1,4 +1,11 @@
-import { Component, OnInit, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
+import { 
+  Component, 
+  OnInit, 
+  EventEmitter, 
+  Output, 
+  ViewChild, 
+  ElementRef 
+} from '@angular/core';
 
 @Component({
   selector: 'app-list-add',
@@ -11,17 +18,19 @@ export class ListAddComponent implements OnInit {
   // newListContent = '';
   @ViewChild('listContentInput')
   listContentInput!: ElementRef;
+  @ViewChild('listNameInput')
+  listNameInput!: ElementRef;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onAddList(nameInput: HTMLInputElement,){
+  onAddList(){
     // console.log(this.listContentInput);
     // console.log(nameInput.value);
     this.listCreated.emit({
-      inputName:nameInput.value, 
+      inputName:this.listNameInput.nativeElement.value, 
       inputContent:this.listContentInput.nativeElement.value
     });
   }

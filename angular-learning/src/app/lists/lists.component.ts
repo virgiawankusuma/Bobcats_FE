@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { 
+  Component, 
+  OnInit,
+  ViewChild,
+  ElementRef
+} from '@angular/core';
 
 @Component({
   selector: 'app-lists',
@@ -6,6 +11,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lists.component.css']
 })
 export class ListsComponent implements OnInit {
+  @ViewChild('listTypeInput')
+  listTypeInput!: ElementRef;
 
   listItem = [{type:'Basic List', name:'List Item', content:'Just a list!'}];
   lists = [
@@ -20,7 +27,7 @@ export class ListsComponent implements OnInit {
 
   
   onAddList(listData:{inputName:string, inputContent:string}){
-    this.lists.push({
+    this.lists.unshift({
       type:'Basic List',
       name:listData.inputName,
       content:listData.inputContent
@@ -28,12 +35,12 @@ export class ListsComponent implements OnInit {
   }
 
   onChangeFirst(){
-    this.lists[0].type = 'Changed';
+    this.lists[0].type = this.listTypeInput.nativeElement.value;
   }
 
   
   onDestroyFirst(){
-    this.lists.splice(0, 1);
+    this.lists.shift();
   }
 
 }
