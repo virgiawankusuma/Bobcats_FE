@@ -1,11 +1,13 @@
 <div class="mb-2">
     <label for="list-name" class="form-label">List Name</label>
-    <input type="text" class="form-control" id="list-name" [(ngModel)]="newListName">
+    <!-- <input type="text" class="form-control" id="list-name" [(ngModel)]="newListName"> -->
+    <input type="text" class="form-control" id="list-name" #listNameInput>
 </div>
 <div class="mb-2">
     <label for="list-content" class="form-label">List Content</label>
-    <input type="text" class="form-control" id="list-content" [(ngModel)]="newListContent">
+    <!-- <input type="text" class="form-control" id="list-content" [(ngModel)]="newListContent"> -->
+    <input type="text" class="form-control" id="list-content" #listContentInput>
 </div>
 <div class="mb-2">
-    <button class="btn btn-primary" (click)="onAddList()">Add</button>
+    <button class="btn btn-primary" (click)="onAddList(listNameInput)">Add</button>
 </div>

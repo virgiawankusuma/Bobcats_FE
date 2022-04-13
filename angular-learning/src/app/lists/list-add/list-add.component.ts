@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-list-add',
@@ -7,18 +7,22 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class ListAddComponent implements OnInit {
   @Output() listCreated = new EventEmitter<{inputName:string, inputContent:string}>();
-  newListName = '';
-  newListContent = '';
+  // newListName = '';
+  // newListContent = '';
+  @ViewChild('listContentInput')
+  listContentInput!: ElementRef;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onAddList(){
+  onAddList(nameInput: HTMLInputElement,){
+    console.log(this.listContentInput);
+    console.log(nameInput.value);
     this.listCreated.emit({
-      inputName:this.newListName, 
-      inputContent:this.newListContent
+      inputName:nameInput.value, 
+      inputContent:this.listContentInput.nativeElement.value
     });
   }
 
