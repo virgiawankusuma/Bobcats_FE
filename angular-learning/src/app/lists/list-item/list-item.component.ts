@@ -50,6 +50,7 @@ OnDestroy {
   ngOnChanges(changes:SimpleChanges){
     console.log(`ngOnChanges called!`);
     console.log(changes);
+    // alert('Succesfully changed!');
   }
   
   ngOnInit(): void {
