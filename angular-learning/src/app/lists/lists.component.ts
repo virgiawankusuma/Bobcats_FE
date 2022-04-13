@@ -27,4 +27,13 @@ export class ListsComponent implements OnInit {
     });
   }
 
+  onChangeFirst(){
+    this.lists[0].type = 'Changed';
+  }
+
+  
+  onDestroyFirst(){
+    this.lists.splice(0, 1);
+  }
+
 }

@@ -18,8 +18,8 @@ export class ListAddComponent implements OnInit {
   }
 
   onAddList(nameInput: HTMLInputElement,){
-    console.log(this.listContentInput);
-    console.log(nameInput.value);
+    // console.log(this.listContentInput);
+    // console.log(nameInput.value);
     this.listCreated.emit({
       inputName:nameInput.value, 
       inputContent:this.listContentInput.nativeElement.value
