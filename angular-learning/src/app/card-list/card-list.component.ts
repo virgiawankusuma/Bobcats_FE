@@ -20,12 +20,4 @@ export class CardListComponent implements OnInit {
     this.tasks = this.tasksService.tasks;
   }
 
-  // onTaskAdded(newTask: {title: string, status: string}) {
-  //   this.tasks.unshift(newTask);
-  // }
-
-  // onStatusChanged(updateInfo: {id: number, newStatus: string}) {
-  //   this.tasks[updateInfo.id].status = updateInfo.newStatus;
-  // }
-
 }
