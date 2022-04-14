@@ -1,0 +1,9 @@
+<mat-card class="mb-3">
+    <mat-card-title>{{task.title}}</mat-card-title>
+    <mat-card-subtitle>{{task.status}}</mat-card-subtitle>
+    <mat-card-actions>
+        <button mat-stroked-button color="basic" (click)="onSetTo('Next Up')">Next Up</button>
+        <button mat-stroked-button color="accent" (click)="onSetTo('In-Progress')">In-Progress</button>
+        <button mat-stroked-button color="warn" (click)="onSetTo('Completed')">Completed</button>
+    </mat-card-actions>
+</mat-card>

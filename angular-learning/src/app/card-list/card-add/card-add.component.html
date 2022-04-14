@@ -1,0 +1,22 @@
+<mat-card>
+    <form class="example-form">
+        <mat-form-field class="example-full-width w-100" appearance="fill">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="Ex. Reading Book" #taskTitle>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Status</mat-label>
+            <mat-select #taskStatus>
+                <mat-option value="Next Up">Next Up</mat-option>
+                <mat-option value="In-Progress">In-Progress</mat-option>
+                <mat-option value="Completed">Completed</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <button mat-flat-button color="primary" (click)="onCreateTask(taskTitle.value, taskStatus.value)">
+            Add
+            Task
+        </button>
+    </form>
+</mat-card>
