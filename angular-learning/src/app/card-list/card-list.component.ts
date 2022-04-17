@@ -12,7 +12,7 @@ import { TasksService } from './tasks.service';
 })
 export class CardListComponent implements OnInit {
 
-  tasks: {title: string, status: string}[] = [];
+  tasks: {id:number; title: string, status: string, description:string}[] = [];
 
   constructor(private tasksService: TasksService) { }
 

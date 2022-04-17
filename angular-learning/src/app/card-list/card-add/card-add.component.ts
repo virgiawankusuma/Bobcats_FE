@@ -17,8 +17,8 @@ export class CardAddComponent implements OnInit {
 
   ngOnInit(): void {
   }
-   onCreateTask(taskTitle: string, taskStatus: string) {
-    this.tasksService.addTask(taskTitle, taskStatus);
+   onCreateTask(taskTitle: string, taskStatus: string, taskDescription:string) {
+    this.tasksService.addTask(taskTitle, taskStatus, taskDescription);
   }
 
 }

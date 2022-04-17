@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { CardListRoutingModule } from './card-list/card-list-routing.module';
 import { AppComponent } from './app.component';
 import { CardsModule } from './cards/cards.module';
 import { ListsModule } from './lists/lists.module';
@@ -14,7 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    CardListRoutingModule,
     CardsModule,
     ListsModule,
     CardListModule,

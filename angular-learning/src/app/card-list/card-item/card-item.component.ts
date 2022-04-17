@@ -1,7 +1,7 @@
 import { 
   Component, 
   OnInit,
-  Input
+  Input,
 } from '@angular/core';
 import { TasksService } from '../tasks.service';
 
@@ -13,7 +13,7 @@ import { TasksService } from '../tasks.service';
 export class CardItemComponent implements OnInit {
   
   @Input()
-  task!: { title: string; status: string; };
+  task!: {title: string; status: string; description:string};
 
   @Input() 
   id!: number;

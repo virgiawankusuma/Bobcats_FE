@@ -14,7 +14,13 @@
             </mat-select>
         </mat-form-field>
         <br>
-        <button mat-flat-button color="primary" (click)="onCreateTask(taskTitle.value, taskStatus.value)">
+        <mat-form-field class="example-full-width w-100" appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea matInput placeholder="Ex. Read Atomic Habits Book up to page 123..." #taskDescription></textarea>
+        </mat-form-field>
+        <br>
+        <button mat-flat-button color="primary"
+            (click)="onCreateTask(taskTitle.value, taskStatus.value, taskDescription.value)">
             Add
             Task
         </button>

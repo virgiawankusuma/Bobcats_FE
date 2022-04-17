@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LoggingService {
-  logTaskAdd(taskTitle:string, taskStatus: string) {
-    console.log(`A new task added, title: ${taskTitle}, status: ${taskStatus}`);
+  logTaskAdd(taskTitle:string, taskStatus: string, taskDescription:string) {
+    console.log(`A new task added, title: ${taskTitle}, status: ${taskStatus}, description: ${taskDescription}`);
   }
   logStatusChange(taskStatus: string) {
     console.log(`A task status changed, new status: ${taskStatus}`);

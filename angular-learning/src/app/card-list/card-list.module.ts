@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CardListRoutingModule } from './card-list-routing.module';
 
 // component
 import { CardListComponent } from './card-list.component';
@@ -12,6 +13,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import { CardDetailComponent } from './card-detail/card-detail.component';
 
 
 
@@ -19,11 +21,13 @@ import {MatSelectModule} from '@angular/material/select';
   declarations: [
     CardListComponent,
     CardItemComponent,
-    CardAddComponent
+    CardAddComponent,
+    CardDetailComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
+    CardListRoutingModule,
     MatCardModule,
     MatButtonModule,
     MatInputModule,

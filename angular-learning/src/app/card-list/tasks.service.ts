@@ -7,16 +7,22 @@ import { LoggingService } from './logging.service';
 export class TasksService {
   tasks = [
     {
+      id: 0,
       title: 'Reading Book',
-      status: 'Next Up'
+      status: 'Next Up',
+      description: 'Read the book'
     },
     {
+      id: 1,
       title: 'Sleep',
-      status: 'In-Progress'
+      status: 'In-Progress',
+      description: 'Sleep for 8 hours'
     },
     {
+      id: 2,
       title: 'Eat',
-      status: 'Completed'
+      status: 'Completed',
+      description: 'Eat for 8 hours'
     }
   ];
 
@@ -24,12 +30,14 @@ export class TasksService {
     private loggingService: LoggingService
     ) { }
 
-  addTask(title:string, status:string) {
+  addTask(title:string, status:string, description:string) {
     this.tasks.unshift({
+      id: this.tasks.length + 1,    
       title: title,
-      status: status
+      status: status,
+      description: description
     });
-    this.loggingService.logTaskAdd(title, status);
+    this.loggingService.logTaskAdd(title, status, description);
   }
 
   updateStatus(id: number, status: string) {
