@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-card-detail',
@@ -15,11 +15,19 @@ export class CardDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.task = {
-      id: +this.route.snapshot.params['id'],
+      id: this.route.snapshot.params['id'],
       title: this.route.snapshot.params['title'],
       status: this.route.snapshot.params['status'],
       description: this.route.snapshot.params['description']
-    }
+    };
+    this.route.params.subscribe(
+      (params : Params) => {
+        this.task.id = params['id'];
+        this.task.title = params['title'];
+        this.task.status = params['status'];
+        this.task.description = params['description'];
+      }
+    )
   }
 
 }
