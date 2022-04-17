@@ -4,19 +4,10 @@ import { CardListComponent } from './card-list.component';
 import { CardDetailComponent } from './card-detail/card-detail.component';
 
 const routes: Routes = [
-  {
-    path: 'tasks',
-    component:CardListComponent
-  },
-  {
-    path: 'tasks/:id',
-    component:CardDetailComponent
-  },
-  {
-    path:'',
-    pathMatch:'full',
-    redirectTo:'tasks'
-  }
+  { path: 'tasks', component:CardListComponent, children: [
+    { path: ':id', component: CardDetailComponent }
+  ]},
+  { path: '', pathMatch:'full', redirectTo:'tasks' }
 ];
 
 @NgModule({

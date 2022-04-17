@@ -10,19 +10,19 @@ export class TasksService {
       id: 0,
       title: 'Reading Book',
       status: 'Next Up',
-      description: 'Read the book'
+      description: 'Read 1Q84 by Haruki Murakami in the evening before bed time.'
     },
     {
       id: 1,
       title: 'Sleep',
       status: 'In-Progress',
-      description: 'Sleep for 8 hours'
+      description: 'Sleep for 8 hours in the morning and 8 hours in the evening'
     },
     {
       id: 2,
       title: 'Eat',
       status: 'Completed',
-      description: 'Eat for 8 hours'
+      description: 'Eat nasi goreng with friends and family for dinner tonight at 7pm at home'
     }
   ];
 
