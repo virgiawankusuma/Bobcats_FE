@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { TasksService } from '../tasks.service';
 
 @Component({
   selector: 'app-card-detail',
@@ -7,25 +8,19 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./card-detail.component.css']
 })
 export class CardDetailComponent implements OnInit {
-  task!: {id:number; title: string; status: string; description:string};
+  task: any;
 
   constructor(
     private route: ActivatedRoute,
+    private tasksService: TasksService
   ) { }
 
   ngOnInit(): void {
-    this.task = {
-      id: this.route.snapshot.params['id'],
-      title: this.route.snapshot.params['title'],
-      status: this.route.snapshot.params['status'],
-      description: this.route.snapshot.params['description']
-    };
+    const id = +this.route.snapshot.params['id'];
+    this.task =  this.tasksService.getTask(id);
     this.route.params.subscribe(
       (params : Params) => {
-        this.task.id = params['id'];
-        this.task.title = params['title'];
-        this.task.status = params['status'];
-        this.task.description = params['description'];
+        this.task = this.tasksService.getTask(+params['id']);
       }
     )
   }

@@ -30,6 +30,15 @@ export class TasksService {
     private loggingService: LoggingService
     ) { }
 
+  getTask(id: number) {
+    const task = this.tasks.find(
+      (t) => {
+        return t.id === id;
+      }
+    );
+    return task;
+  }
+
   addTask(title:string, status:string, description:string) {
     this.tasks.unshift({
       id: this.tasks.length + 1,    
