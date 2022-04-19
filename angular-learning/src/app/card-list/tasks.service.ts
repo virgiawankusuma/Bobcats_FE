@@ -54,4 +54,11 @@ export class TasksService {
     this.loggingService.logStatusChange(status);
   }
 
+  updateTask(id: number, title: string, status: string, description: string) {
+    this.tasks[id].title = title;
+    this.tasks[id].status = status;
+    this.tasks[id].description = description;
+    this.loggingService.logTaskUpdate(title, status, description);
+  }
+
 }

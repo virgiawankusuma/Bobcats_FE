@@ -10,6 +10,9 @@ export class LoggingService {
   logStatusChange(taskStatus: string) {
     console.log(`A task status changed, new status: ${taskStatus}`);
   }
+  logTaskUpdate(taskTitle:string, taskStatus: string, taskDescription:string) {
+    console.log(`A task updated, title: ${taskTitle}, status: ${taskStatus}, description: ${taskDescription}`);
+  }
 
   constructor() { }
 }

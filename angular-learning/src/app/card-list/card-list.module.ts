@@ -14,6 +14,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { CardDetailComponent } from './card-detail/card-detail.component';
+import { CardEditComponent } from './card-edit/card-edit.component';
 
 
 
@@ -22,7 +23,8 @@ import { CardDetailComponent } from './card-detail/card-detail.component';
     CardListComponent,
     CardItemComponent,
     CardAddComponent,
-    CardDetailComponent
+    CardDetailComponent,
+    CardEditComponent
   ],
   imports: [
     CommonModule,

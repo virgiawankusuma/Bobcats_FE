@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { TasksService } from '../tasks.service';
 
 @Component({
@@ -12,7 +12,8 @@ export class CardDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private tasksService: TasksService
+    private tasksService: TasksService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -25,4 +26,9 @@ export class CardDetailComponent implements OnInit {
     )
   }
 
+  
+  onEdit(taskTitle: string, taskStatus: string, taskDescription:string) {
+    // this.tasksService.updateTask(this.task.id, taskTitle, taskStatus, taskDescription);
+    this.router.navigate(['edit'], {relativeTo: this.route});
+  }
 }
