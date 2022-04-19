@@ -21,7 +21,6 @@
                 #taskUpdateDescription>{{task.description}}</textarea>
         </mat-form-field>
         <br>
-        <button mat-stroked-button color="basic" [routerLink]="['/tasks', task.id]" class="me-2">&larr; Back</button>
         <button mat-raised-button color="primary"
             (click)="onUpdateTask(taskUpdateTitle.value, taskUpdateStatus.value, taskUpdateDescription.value)">
             Update
