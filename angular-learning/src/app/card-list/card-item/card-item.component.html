@@ -1,6 +1,6 @@
 <mat-card class="mb-3">
-    <a [routerLink]="['/tasks', task.id]">
-        <mat-card-title>{{task.title}}</mat-card-title>
+    <a class="btn btn-lg p-0 m-0">
+        <mat-card-title (click)="onDetailTask()">{{task.title}}</mat-card-title>
     </a>
     <mat-card-subtitle>{{task.status}}</mat-card-subtitle>
     <mat-card-actions>

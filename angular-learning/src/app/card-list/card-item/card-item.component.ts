@@ -3,6 +3,7 @@ import {
   OnInit,
   Input,
 } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TasksService } from '../tasks.service';
 
 @Component({
@@ -19,7 +20,9 @@ export class CardItemComponent implements OnInit {
   // id!: number;
 
   constructor(
-    private tasksService: TasksService
+    private tasksService: TasksService,
+    private route: ActivatedRoute,
+    private router: Router
     ) {
 
   }
@@ -29,5 +32,9 @@ export class CardItemComponent implements OnInit {
 
   onSetTo(taskStatus: string) {
     this.tasksService.updateStatus(this.task.id, taskStatus);
+  }
+
+  onDetailTask(){
+    this.router.navigate([this.task.id], {relativeTo: this.route});
   }
 }
