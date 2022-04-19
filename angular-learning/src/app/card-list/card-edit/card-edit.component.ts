@@ -34,8 +34,8 @@ export class CardEditComponent implements OnInit {
     )
   }
 
-  onUpdateTask(taskTitle: string, taskStatus: string, taskDescription:string) {
-    this.tasksService.updateTask(this.task.id, taskTitle, taskStatus, taskDescription);
+  onUpdateTask(taskUpdateTitle: string, taskUpdateStatus: string, taskUpdateDescription:string) {
+    this.tasksService.updateTask(this.task.id, taskUpdateTitle, taskUpdateStatus, taskUpdateDescription);
   }
 
 }
