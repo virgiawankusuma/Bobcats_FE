@@ -13,10 +13,10 @@ import { TasksService } from '../tasks.service';
 export class CardItemComponent implements OnInit {
   
   @Input()
-  task!: {title: string; status: string; description:string};
+  task!: {id:number; title: string; status: string; description:string};
 
-  @Input() 
-  id!: number;
+  // @Input() 
+  // id!: number;
 
   constructor(
     private tasksService: TasksService
@@ -28,6 +28,6 @@ export class CardItemComponent implements OnInit {
   }
 
   onSetTo(taskStatus: string) {
-    this.tasksService.updateStatus(this.id, taskStatus);
+    this.tasksService.updateStatus(this.task.id, taskStatus);
   }
 }
