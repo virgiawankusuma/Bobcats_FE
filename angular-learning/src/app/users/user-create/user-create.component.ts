@@ -17,11 +17,16 @@ export class UserCreateComponent implements OnInit {
 
   addUser!:FormGroup;
 
+  classListItem = 'list-group-item d-flex justify-content-between align-items-start';
+  
   constructor(
     private usersService: UsersService
-  ) { }
+    ) { }
 
-  ngOnInit(): void {
+    users = this.usersService.users;
+    
+    ngOnInit(): void {
+    const userId = new FormControl(this.users.length+1);
     const userAddresses = new FormArray([
       new FormControl(null),
       new FormControl(null),
@@ -31,23 +36,24 @@ export class UserCreateComponent implements OnInit {
     // userAddresses.setValue(['addressesDescription', 'addressesRegion', 'addressesCity','addressesCountry']);
 
     this.addUser = new FormGroup({
-      'userName': new FormControl(null, [Validators.required]),
-      'userPassport': new FormControl(null, [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
-      'userAge': new FormControl(20, [Validators.required]),
-      'userGender': new FormControl('Male', [Validators.required]),
-      'userProfessions': new FormControl(null, [Validators.required]),
-      'userMaritalStatus': new FormControl('Single', [Validators.required]),
-      'userAddresses': userAddresses
+      'id': userId,
+      'name': new FormControl(null, [Validators.required]),
+      'passport': new FormControl(null, [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
+      'age': new FormControl(20, [Validators.required]),
+      'gender': new FormControl('Male', [Validators.required]),
+      'professions': new FormControl(null, [Validators.required]),
+      'maritalStatus': new FormControl('Single', [Validators.required]),
+      'addresses': userAddresses
     });
   }
 
   onSubmit(){
-    console.log(this.addUser);
-    // this.usersService.addUser(this.addUser.value);
+    // console.log(this.addUser.value);
+    this.usersService.addUser(this.addUser.value);
   }
 
   getControls() {
-    return (<FormArray>this.addUser.get('userAddresses')).controls;
+    return (<FormArray>this.addUser.get('addresses')).controls;
   }
 
   // onAddAddress(){

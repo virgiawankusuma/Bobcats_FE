@@ -43,17 +43,8 @@ export class UsersService {
     return user;
   }
 
-  addUser(name: string, passport: number, age: number, gender: string, professions: string, maritalStatus: string, addresses: string[])
+  addUser(user: any)
   {
-    this.users.push({
-      id: this.users.length+1,
-      name: name,
-      passport: passport,
-      age: age,
-      gender: gender,
-      professions: professions,
-      maritalStatus: maritalStatus,
-      addresses: addresses
-    })
+    this.users.push(user);
   }
 }
