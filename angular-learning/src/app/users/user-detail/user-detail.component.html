@@ -1,0 +1,15 @@
+<h2>User ID "{{user.id}}" Detail</h2>
+<mat-card class="example-card">
+    <mat-card-title>
+        {{user.name}}
+        <span class="badge bg-primary rounded-pill float-end">{{user.age}}</span>
+    </mat-card-title>
+    <mat-card-subtitle>{{user.professions}} | {{user.gender}} | {{user.maritalStatus}}</mat-card-subtitle>
+    <mat-card-content>
+        <p>Passport {{user.passport}}</p>
+        <p>Addresses: {{user.addresses}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-stroked-button color="basic" [routerLink]="['/users']">&larr; Back</button>
+    </mat-card-actions>
+</mat-card>

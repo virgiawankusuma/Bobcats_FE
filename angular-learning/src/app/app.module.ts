@@ -1,24 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { CardListRoutingModule } from './card-list/card-list-routing.module';
 import { AppComponent } from './app.component';
-import { CardsModule } from './cards/cards.module';
-import { ListsModule } from './lists/lists.module';
-import { CardListModule } from './card-list/card-list.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UsersRoutingModule } from './users/users-routing.module';
+import { UsersModule } from './users/users.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
-    CardListRoutingModule,
-    CardsModule,
-    ListsModule,
-    CardListModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    UsersRoutingModule,
+    UsersModule
   ],
   providers: [],
   bootstrap: [AppComponent]

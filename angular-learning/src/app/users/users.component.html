@@ -1,0 +1,15 @@
+<app-navbar></app-navbar>
+<div class="container my-3">
+    <div class="row">
+        <div class="col-6">
+            <h2>User List</h2>
+            <div class="list-group list-group-numbered">
+                <app-user [class]="classListItem" *ngFor="let usr of users; let i = index" [user]="usr" [id]="usr.id">
+                </app-user>
+            </div>
+        </div>
+        <div class="col-6">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

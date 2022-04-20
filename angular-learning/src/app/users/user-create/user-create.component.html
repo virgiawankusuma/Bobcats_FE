@@ -1,0 +1,77 @@
+<app-navbar></app-navbar>
+<div class="container my-3">
+    <div class="row">
+        <div class="col-12 col-xl-8 col-lg-8">
+            <h2>User Create</h2>
+            <mat-card>
+                <form class="example-form" [formGroup]="addUser" (ngSubmit)="onSubmit()">
+                    <mat-form-field class="example-full-width w-100 mb-3" appearance="fill">
+                        <mat-label>Name</mat-label>
+                        <input matInput placeholder="Ex. John Doe" [formControlName]="'userName'">
+                        <mat-error *ngIf="!addUser.valid && addUser.touched">
+                            Name is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="example-full-width w-100 mb-3" appearance="fill">
+                        <mat-label>Passport</mat-label>
+                        <input matInput placeholder="Ex. 1223344" [formControlName]="'userPassport'">
+                        <mat-error *ngIf="!addUser.valid && addUser.touched">
+                            Passport is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <mat-card-content>
+                        <div class="example-label-container">
+                            <mat-label>Age</mat-label>
+                        </div>
+                        <mat-slider class="w-100" thumbLabel step="1" min="1" max="100" aria-label="units"
+                            [formControlName]="'userAge'">
+                        </mat-slider>
+                        <br>
+                    </mat-card-content>
+                    <mat-card-content>
+                        <div class="example-label-container mb-2">
+                            <mat-label class="example-radio-group-label">Gender</mat-label>
+                        </div>
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                            [formControlName]="'userGender'">
+                            <mat-radio-button class="me-3 mb-2" *ngFor="let gender of genders" value="{{gender}}">
+                                {{gender}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </mat-card-content>
+                    <br>
+                    <mat-form-field class="example-full-width w-100 mb-3" appearance="fill">
+                        <mat-label>Professions</mat-label>
+                        <input matInput placeholder="Ex. Sailor" [formControlName]="'userProfessions'">
+                        <mat-error *ngIf="!addUser.valid && addUser.touched">
+                            Professions is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Marital Status</mat-label>
+                        <mat-select [formControlName]="'userMaritalStatus'">
+                            <mat-option *ngFor="let marital of maritals" value="{{marital}}">{{marital}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br>
+                    <div formArrayName="userAddresses">
+                        <mat-label>Addresses</mat-label>
+                        <div class="form-group" *ngFor="let addressesControl of getControls(); let i = index">
+                            <mat-form-field class="example-full-width w-100" appearance="fill">
+                                <input matInput [formControlName]="i">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <br>
+                    <button mat-flat-button color="primary" type="submit">
+                        Add
+                        User
+                    </button>
+                </form>
+            </mat-card>
+        </div>
+    </div>
+</div>
