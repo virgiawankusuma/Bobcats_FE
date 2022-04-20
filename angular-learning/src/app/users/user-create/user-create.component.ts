@@ -1,6 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from '../users.service';
+
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-user-create',
@@ -18,27 +21,36 @@ export class UserCreateComponent implements OnInit {
   addUser!:FormGroup;
 
   classListItem = 'list-group-item d-flex justify-content-between align-items-start';
+
+  lang:any
   
   constructor(
-    private usersService: UsersService
-    ) { }
+    private usersService: UsersService,
+    private http: HttpClient,
+    public translate: TranslateService
+    ) {
+      translate.addLangs(['en-US', 'fr-FR']);
+      translate.setDefaultLang('en-US');
+      const browserLang:any = translate.getBrowserLang();
+      translate.use(browserLang.match(/en-US|fr-FR/) ? browserLang : 'en');
+    }
 
     users = this.usersService.users;
     
     ngOnInit(): void {
-    const userId = new FormControl(this.users.length+1);
+      const userId = new FormControl(this.users.length+1);
 
-    this.addUser = new FormGroup({
-      'id': userId,
-      'name': new FormControl(null, [Validators.required]),
-      'passport': new FormControl(null, [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
-      'age': new FormControl(20, [Validators.required]),
-      'gender': new FormControl('Male', [Validators.required]),
-      'professions': new FormControl(null, [Validators.required]),
-      'maritalStatus': new FormControl('Single', [Validators.required]),
-      'addresses': new FormArray([new FormControl])
-    });
-  }
+      this.addUser = new FormGroup({
+        'id': userId,
+        'name': new FormControl(null, [Validators.required]),
+        'passport': new FormControl(null, [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
+        'age': new FormControl(20, [Validators.required]),
+        'gender': new FormControl('Male', [Validators.required]),
+        'professions': new FormControl(null, [Validators.required]),
+        'maritalStatus': new FormControl('Single', [Validators.required]),
+        'addresses': new FormArray([new FormControl])
+      });
+    }
 
   onSubmit(){
     // console.log(this.addUser.value);

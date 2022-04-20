@@ -1,0 +1,24 @@
+{
+    "UserCreate" :{
+        "title": "Créer un utilisateur",
+        "title2": "Liste d'utilisateur",
+        "choose_language": "Choisissez la langue",
+        "name": "Nom",
+        "name_error": "Le nom est requis",
+        "passport": "Passeport",
+        "passport_error": "Passeport obligatoire",
+        "age": "Âge",
+        "gender":"Le sexe",
+        "Male": "Mâle",
+        "Female": "Femelle",
+        "Transgender": "Transgenres",
+        "Non-binary/non-conforming": "Non binaire/non conforme",
+        "Prefer not to respond": "Je préfère ne pas répondre",
+        "profession": "Métier",
+        "profession_error": "Le métier est requis",
+        "marital_status" : "État civil",
+        "addresses": "Adresses",
+        "add_address": "Ajoutez l'adresse",
+        "add_user": "Ajouter un utilisateur"
+    }
+}

@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersRoutingModule } from './users-routing.module';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateModule,TranslateLoader} from '@ngx-translate/core';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 // component
 import { UserComponent } from './user/user.component';
@@ -18,6 +21,9 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSliderModule} from '@angular/material/slider';
 import {NavbarComponent } from './navbar/navbar.component';
 
+export function HttpLoaderFactory(http: HttpClient){
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -32,6 +38,15 @@ import {NavbarComponent } from './navbar/navbar.component';
     FormsModule,
     ReactiveFormsModule,
     UsersRoutingModule,
+    MatCardModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     MatCardModule,
     MatButtonModule,
     MatInputModule,

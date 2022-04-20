@@ -1,0 +1,24 @@
+{
+    "UserCreate" :{
+        "title": "User Create",
+        "title2": "User List",
+        "choose_language": "Choose Language",
+        "name": "Name",
+        "name_error": "Name is required",
+        "passport": "Passport",
+        "passport_error": "Passport is required",
+        "age": "Age",
+        "gender":"Gender",
+        "Male": "Male",
+        "Female": "Female",
+        "Transgender": "Transgender",
+        "Non-binary/non-conforming": "Non-binary/non-conforming",
+        "Prefer not to respond": "Prefer not to respond",
+        "profession": "Profession",
+        "profession_error": "Profession is required",
+        "marital_status" : "Marital Status",
+        "addresses": "Addresses",
+        "add_address": "Add Address",
+        "add_user": "Add User"
+    }
+}

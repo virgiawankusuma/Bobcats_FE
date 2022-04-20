@@ -2,29 +2,35 @@
 <div class="container my-3">
     <div class="row">
         <div class="col-12 col-xl-6 col-lg-8">
-            <h2>User Create</h2>
+            <h2>{{'UserCreate.title'| translate }}</h2>
             <mat-card>
+                <div class="language-picker-area mb-3">
+                    <div class="picker-label">{{'UserCreate.choose_language'| translate }}</div>
+                    <select class="language-picker" #langselect (change)="translate.use(langselect.value)">
+                        <option *ngFor="let lang of translate.getLangs()" [value]="lang">{{lang}}</option>
+                    </select>
+                </div>
                 <form class="example-form" [formGroup]="addUser" (ngSubmit)="onSubmit()">
                     <input type="hidden" [formControlName]="'id'">
                     <mat-form-field class="example-full-width w-100 mb-3" appearance="fill">
-                        <mat-label>Name</mat-label>
+                        <mat-label>{{'UserCreate.name'| translate }}</mat-label>
                         <input matInput placeholder="Ex. John Doe" [formControlName]="'name'">
                         <mat-error *ngIf="!addUser.valid && addUser.touched">
-                            Name is <strong>required</strong>
+                            {{'UserCreate.name_error'| translate }}
                         </mat-error>
                     </mat-form-field>
                     <br>
                     <mat-form-field class="example-full-width w-100 mb-3" appearance="fill">
-                        <mat-label>Passport</mat-label>
-                        <input matInput placeholder="Ex. 1223344" [formControlName]="'passport'">
+                        <mat-label>{{'UserCreate.passport'| translate }}</mat-label>
+                        <input matInput placeholder="Ex. 123456789" [formControlName]="'passport'">
                         <mat-error *ngIf="!addUser.valid && addUser.touched">
-                            Passport is <strong>required</strong>
+                            {{'UserCreate.passport_error'| translate }}
                         </mat-error>
                     </mat-form-field>
                     <br>
                     <mat-card-content>
                         <div class="example-label-container">
-                            <mat-label>Age</mat-label>
+                            <mat-label>{{'UserCreate.age'| translate }}</mat-label>
                         </div>
                         <mat-slider class="w-100" thumbLabel step="1" min="1" max="100" aria-label="units"
                             [formControlName]="'age'">
@@ -33,7 +39,7 @@
                     </mat-card-content>
                     <mat-card-content>
                         <div class="example-label-container mb-2">
-                            <mat-label class="example-radio-group-label">Gender</mat-label>
+                            <mat-label class="example-radio-group-label">{{'UserCreate.gender'| translate }}</mat-label>
                         </div>
                         <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
                             [formControlName]="'gender'">
@@ -44,15 +50,15 @@
                     </mat-card-content>
                     <br>
                     <mat-form-field class="example-full-width w-100 mb-3" appearance="fill">
-                        <mat-label>Professions</mat-label>
+                        <mat-label>{{'UserCreate.profession'| translate }}</mat-label>
                         <input matInput placeholder="Ex. Sailor" [formControlName]="'professions'">
                         <mat-error *ngIf="!addUser.valid && addUser.touched">
-                            Professions is <strong>required</strong>
+                            {{'UserCreate.profession_error'| translate }}
                         </mat-error>
                     </mat-form-field>
                     <br>
                     <mat-form-field appearance="fill" class="w-100">
-                        <mat-label>Marital Status</mat-label>
+                        <mat-label>{{'UserCreate.marital_status' | translate}}</mat-label>
                         <mat-select [formControlName]="'maritalStatus'">
                             <mat-option *ngFor="let marital of maritals" value="{{marital}}">{{marital}}</mat-option>
                         </mat-select>
@@ -65,22 +71,22 @@
                                 <input matInput [formControlName]="i">
                             </mat-form-field>
                         </div> -->
-                        <mat-label>Addresses</mat-label>
-                        <button mat-button color="basic" (click)="onAddAddress()">Add Address</button>
+                        <mat-label>{{'UserCreate.addresses' | translate}}</mat-label>
+                        <button mat-button color="basic" (click)="onAddAddress()">{{'UserCreate.add_address' |
+                            translate}}</button>
                         <div class="form-group" *ngFor="let addressesControl of getControls(); let i = index">
                             <input type="text" class="form-control" [formControlName]="i">
                         </div>
                     </div>
                     <br>
                     <button mat-flat-button color="primary">
-                        Add
-                        User
+                        {{'UserCreate.add_user' | translate}}
                     </button>
                 </form>
             </mat-card>
         </div>
         <div class="col-12 col-xl-6 col-lg-6">
-            <h2>User List</h2>
+            <h2>{{'UserCreate.title2'| translate }}</h2>
             <div class="list-group list-group-numbered">
                 <app-user [class]="classListItem" *ngFor="let usr of users; let i = index" [user]="usr" [id]="usr.id">
                 </app-user>
