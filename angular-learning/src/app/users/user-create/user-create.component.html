@@ -59,11 +59,16 @@
                     </mat-form-field>
                     <br>
                     <div formArrayName="addresses">
-                        <mat-label>Addresses</mat-label>
+                        <!-- <mat-label>Addresses</mat-label>
                         <div class="form-group" *ngFor="let addressesControl of getControls(); let i = index">
                             <mat-form-field class="example-full-width w-100" appearance="fill">
                                 <input matInput [formControlName]="i">
                             </mat-form-field>
+                        </div> -->
+                        <mat-label>Addresses</mat-label>
+                        <button mat-button color="basic" (click)="onAddAddress()">Add Address</button>
+                        <div class="form-group" *ngFor="let addressesControl of getControls(); let i = index">
+                            <input type="text" class="form-control" [formControlName]="i">
                         </div>
                     </div>
                     <br>

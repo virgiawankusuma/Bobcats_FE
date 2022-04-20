@@ -27,13 +27,6 @@ export class UserCreateComponent implements OnInit {
     
     ngOnInit(): void {
     const userId = new FormControl(this.users.length+1);
-    const userAddresses = new FormArray([
-      new FormControl(null),
-      new FormControl(null),
-      new FormControl(null),
-      new FormControl(null)
-    ]);
-    // userAddresses.setValue(['addressesDescription', 'addressesRegion', 'addressesCity','addressesCountry']);
 
     this.addUser = new FormGroup({
       'id': userId,
@@ -43,7 +36,7 @@ export class UserCreateComponent implements OnInit {
       'gender': new FormControl('Male', [Validators.required]),
       'professions': new FormControl(null, [Validators.required]),
       'maritalStatus': new FormControl('Single', [Validators.required]),
-      'addresses': userAddresses
+      'addresses': new FormArray([new FormControl])
     });
   }
 
@@ -56,9 +49,9 @@ export class UserCreateComponent implements OnInit {
     return (<FormArray>this.addUser.get('addresses')).controls;
   }
 
-  // onAddAddress(){
-  //   const control = new FormControl(null, Validators.required);
-  //   (<FormArray>this.addUser.get('userAddresses')).push(control);
-  // }
+  onAddAddress(){
+    const control = new FormControl(null, Validators.required);
+    (<FormArray>this.addUser.get('addresses')).push(control);
+  }
 
 }
