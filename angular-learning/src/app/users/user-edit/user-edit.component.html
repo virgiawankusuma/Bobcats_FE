@@ -1,0 +1,94 @@
+<h2>{{'UserEdit.title'| translate }}</h2>
+<mat-card>
+    <div class="language-picker-area mb-3">
+        <div class="picker-label">{{'UserEdit.choose_language'| translate }}</div>
+        <select class="language-picker" #langselect (change)="translate.use(langselect.value)">
+            <option *ngFor="let lang of translate.getLangs()" [value]="lang">{{lang}}</option>
+        </select>
+    </div>
+    <form class="example-form" [formGroup]="updateUser" (ngSubmit)="onUpdateSubmit()">
+        <input type="hidden" [formControlName]="'id'">
+        <mat-form-field class="example-full-width w-100 mb-3" appearance="fill">
+            <mat-label>{{'UserEdit.name'| translate }}</mat-label>
+            <input matInput placeholder="Ex. John Doe" [formControlName]="'name'">
+            <mat-error *ngIf=" !updateUser.valid && updateUser.touched">
+                {{'UserEdit.name_error'| translate }}
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width w-100 mb-3" appearance="fill">
+            <mat-label>{{'UserEdit.email'| translate }}</mat-label>
+            <input matInput placeholder="Ex. johndoe@mail.com" [formControlName]="'email'">
+            <mat-error *ngIf="!updateUser.valid && updateUser.touched">
+                {{'UserEdit.email_notvalid'| translate }}
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width w-100 mb-3" appearance="fill">
+            <mat-label>{{'UserEdit.phone_number'| translate }}</mat-label>
+            <input matInput placeholder="Ex. 081234567890" [formControlName]="'phoneNumber'">
+            <mat-error *ngIf="!updateUser.valid && updateUser.touched">
+                {{'UserEdit.phone_number_error'| translate }}
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width w-100 mb-3" appearance="fill">
+            <mat-label>{{'UserEdit.passport'| translate }}</mat-label>
+            <input matInput placeholder="Ex. 123456789" [formControlName]="'passport'">
+            <mat-error *ngIf="!updateUser.valid && updateUser.touched">
+                {{'UserEdit.passport_error'| translate }}
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-card-content>
+            <div class="example-label-container">
+                <mat-label>{{'UserEdit.age'| translate }}</mat-label>
+            </div>
+            <mat-slider class="w-100" thumbLabel step="1" min="1" max="100" aria-label="units"
+                [formControlName]="'age'">
+            </mat-slider>
+            <br>
+        </mat-card-content>
+        <mat-card-content>
+            <div class="example-label-container mb-2">
+                <mat-label class="example-radio-group-label">{{'UserEdit.gender'| translate }}</mat-label>
+            </div>
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                [formControlName]="'gender'">
+                <mat-radio-button class="me-3 mb-2" *ngFor="let gender of genders" value="{{gender}}">
+                    {{gender}}
+                </mat-radio-button>
+            </mat-radio-group>
+        </mat-card-content>
+        <br>
+        <mat-form-field class="example-full-width w-100 mb-3" appearance="fill">
+            <mat-label>{{'UserEdit.profession'| translate }}</mat-label>
+            <input matInput placeholder="Ex. Sailor" [formControlName]="'professions'">
+            <mat-error *ngIf="!updateUser.valid && updateUser.touched">
+                {{'UserEdit.profession_error'| translate }}
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill" class="w-100">
+            <mat-label>{{'UserEdit.marital_status' | translate}}</mat-label>
+            <mat-select [formControlName]="'maritalStatus'">
+                <mat-option *ngFor="let marital of maritals" value="{{marital}}">{{marital}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <div formArrayName="addresses">
+            <mat-label>{{'UserEdit.addresses' | translate}}</mat-label>
+            <button mat-button color="basic" (click)="onAddAddress()">{{'UserEdit.add_address' |
+                translate}}</button>
+            <div class="form-group" *ngFor="let addressesControl of getControls(); let i = index">
+                <input type="text" class="form-control" [formControlName]="i">
+            </div>
+        </div>
+        <br>
+        <button mat-stroked-button class="me-2" color="basic" [routerLink]="['/users']">&larr;
+            {{'UserEdit.back' | translate}}</button>
+        <button mat-raised-button color="primary">
+            {{'UserEdit.update_user' | translate}}
+        </button>
+    </form>
+</mat-card>

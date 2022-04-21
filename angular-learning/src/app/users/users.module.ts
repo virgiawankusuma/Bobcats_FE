@@ -7,10 +7,11 @@ import { TranslateModule,TranslateLoader} from '@ngx-translate/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 // component
+import { UsersComponent } from './users.component';
 import { UserComponent } from './user/user.component';
 import { UserCreateComponent } from './user-create/user-create.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
-import { UsersComponent } from './users.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 // material
 import {MatCardModule} from '@angular/material/card';
@@ -31,6 +32,7 @@ export function HttpLoaderFactory(http: HttpClient){
     UserComponent,
     UserCreateComponent,
     UserDetailComponent,
+    UserEditComponent,
     NavbarComponent
   ],
   imports: [

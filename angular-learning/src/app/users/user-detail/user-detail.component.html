@@ -6,10 +6,12 @@
     </mat-card-title>
     <mat-card-subtitle>{{user.professions}} | {{user.gender}} | {{user.maritalStatus}}</mat-card-subtitle>
     <mat-card-content>
-        <p>Passport {{user.passport}}</p>
+        <p>Email: {{user.email}} | Phone Number: {{user.phoneNumber}}</p>
+        <p>Passport: {{user.passport}}</p>
         <p>Addresses: {{user.addresses}}</p>
     </mat-card-content>
     <mat-card-actions>
         <button mat-stroked-button color="basic" [routerLink]="['/users']">&larr; Back</button>
+        <button mat-raised-button color="warn" (click)="onEdit(user)">Edit</button>
     </mat-card-actions>
 </mat-card>

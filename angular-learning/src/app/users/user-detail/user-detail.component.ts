@@ -27,4 +27,9 @@ export class UserDetailComponent implements OnInit {
     )
   }
 
+  onEdit(user:any){
+    console.log(user);
+    this.router.navigate(['edit'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
+  }
+
 }
