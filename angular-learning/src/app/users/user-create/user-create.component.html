@@ -81,12 +81,6 @@
                     </mat-form-field>
                     <br>
                     <div formArrayName="addresses">
-                        <!-- <mat-label>Addresses</mat-label>
-                        <div class="form-group" *ngFor="let addressesControl of getControls(); let i = index">
-                            <mat-form-field class="example-full-width w-100" appearance="fill">
-                                <input matInput [formControlName]="i">
-                            </mat-form-field>
-                        </div> -->
                         <mat-label>{{'UserCreate.addresses' | translate}}</mat-label>
                         <button mat-button color="basic" (click)="onAddAddress()">{{'UserCreate.add_address' |
                             translate}}</button>

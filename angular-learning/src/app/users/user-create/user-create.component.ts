@@ -28,7 +28,7 @@ export class UserCreateComponent implements OnInit {
       translate.addLangs(['en-US', 'fr-FR']);
       translate.setDefaultLang('en-US');
       const browserLang:any = translate.getBrowserLang();
-      translate.use(browserLang.match(/en-US|fr-FR/) ? browserLang : 'en');
+      translate.use(browserLang.match(/en-US|fr-FR/) ? browserLang : 'en-US');
     }
 
     users = this.usersService.users;
