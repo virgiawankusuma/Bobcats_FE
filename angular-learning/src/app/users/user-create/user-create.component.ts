@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from '../users.service';
@@ -26,7 +25,6 @@ export class UserCreateComponent implements OnInit {
   
   constructor(
     private usersService: UsersService,
-    private http: HttpClient,
     public translate: TranslateService
     ) {
       translate.addLangs(['en-US', 'fr-FR']);
@@ -43,6 +41,8 @@ export class UserCreateComponent implements OnInit {
       this.addUser = new FormGroup({
         'id': userId,
         'name': new FormControl(null, [Validators.required]),
+        'email': new FormControl(null, [Validators.required, Validators.email]),
+        'phoneNumber': new FormControl(null, [Validators.required]),
         'passport': new FormControl(null, [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
         'age': new FormControl(20, [Validators.required]),
         'gender': new FormControl('Male', [Validators.required]),
@@ -54,7 +54,10 @@ export class UserCreateComponent implements OnInit {
 
   onSubmit(){
     // console.log(this.addUser.value);
-    this.usersService.addUser(this.addUser.value);
+    if (this.addUser.valid) {
+      this.usersService.addUser(this.addUser.value);
+      this.addUser.reset();
+    }
   }
 
   getControls() {
