@@ -4,7 +4,7 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from '../users.service';
 
 import { TranslateService } from '@ngx-translate/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-edit',
@@ -29,7 +29,8 @@ export class UserEditComponent implements OnInit {
     private usersService: UsersService,
     public translate: TranslateService,
     private http: HttpClient,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
     ) {
       translate.addLangs(['en-US', 'fr-FR']);
       translate.setDefaultLang('en-US');
@@ -54,14 +55,20 @@ export class UserEditComponent implements OnInit {
         'gender': new FormControl(this.user.gender, [Validators.required]),
         'professions': new FormControl(this.user.professions, [Validators.required]),
         'maritalStatus': new FormControl(this.user.maritalStatus, [Validators.required]),
-        'addresses': new FormArray([new FormControl])
+        'addresses': new FormArray([])
       });
+      
+      for (let i = 0; i < this.user.addresses.length; i++) {
+        const control = new FormControl(this.user.addresses[i], Validators.required);
+        (<FormArray>this.updateUser.get('addresses')).push(control);
+      }
     }
 
   onUpdateSubmit(){
     // console.log(this.updateUser.value);
     if (this.updateUser.valid) {
       this.usersService.updateUser(this.updateUser.value);
+      this.router.navigate(['/users', this.user.id]);
       this.updateUser.reset();
     }
   }

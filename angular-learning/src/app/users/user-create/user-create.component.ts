@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from '../users.service';
 
@@ -10,9 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./user-create.component.css']
 })
 export class UserCreateComponent implements OnInit {
-
-  @Input()
-  user!:  { id:number, name:string, passport:number, age:number, gender:string, professions:string, maritalStatus:string };
+  user:any
 
   genders = ['Male', 'Female', 'Transgender', 'Non-binary/non-conforming', 'Prefer not to respond'];
   maritals = ['Maried', 'Widowed', 'Separated', 'Divorced', 'Single'];
