@@ -30,7 +30,7 @@
                     <br>
                     <mat-form-field class="example-full-width w-100 mb-3" appearance="fill">
                         <mat-label>{{'UserCreate.phone_number'| translate }}</mat-label>
-                        <input matInput placeholder="Ex. 081234567890" [formControlName]="'phoneNumber'">
+                        <input type="number" matInput placeholder="Ex. 081234567890" [formControlName]="'phoneNumber'">
                         <mat-error *ngIf="!addUser.valid && addUser.touched">
                             {{'UserCreate.phone_number_error'| translate }}
                         </mat-error>
@@ -38,7 +38,7 @@
                     <br>
                     <mat-form-field class="example-full-width w-100 mb-3" appearance="fill">
                         <mat-label>{{'UserCreate.passport'| translate }}</mat-label>
-                        <input matInput placeholder="Ex. 123456789" [formControlName]="'passport'">
+                        <input type="number" matInput placeholder="Ex. 123456789" [formControlName]="'passport'">
                         <mat-error *ngIf="!addUser.valid && addUser.touched">
                             {{'UserCreate.passport_error'| translate }}
                         </mat-error>
