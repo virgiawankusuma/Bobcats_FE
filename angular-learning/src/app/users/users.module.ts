@@ -24,6 +24,7 @@ import {NavbarComponent } from './navbar/navbar.component';
 import { NoSymbolPipe } from './no-symbol.pipe';
 import { NoSpacingPipe } from './no-spacing.pipe';
 import { NoAccentPipe } from './no-accent.pipe';
+import { FilterPipe } from './filter.pipe';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
@@ -39,7 +40,8 @@ export function HttpLoaderFactory(http: HttpClient){
     NavbarComponent,
     NoSymbolPipe,
     NoSpacingPipe,
-    NoAccentPipe
+    NoAccentPipe,
+    FilterPipe
   ],
   imports: [
     CommonModule,

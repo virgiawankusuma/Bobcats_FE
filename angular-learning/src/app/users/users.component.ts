@@ -16,6 +16,8 @@ export class UsersComponent implements OnInit {
     private userService: UsersService
   ) { }
 
+  filteredName:any = '';
+
   ngOnInit(): void {
     this.users = this.userService.users;
   }
