@@ -6,8 +6,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class NoAccentPipe implements PipeTransform {
 
   transform(value: any): any {
-    return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    return value.normalize("NFD");
+    // return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     // src https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript
   }
-
 }
