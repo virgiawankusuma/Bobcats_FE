@@ -3,9 +3,9 @@
     <div class="row">
         <div class="col-12 col-xl-6 col-lg-6 mb-3">
             <h2>User List</h2>
-            <input class="form-control mb-3" type="search" placeholder="Filter" [(ngModel)]="filteredName">
+            <input class="form-control mb-3" type="search" placeholder="Filter" [(ngModel)]="filtered">
             <div class="list-group list-group-numbered">
-                <app-user [class]="classListItem" *ngFor="let usr of users | filter:filteredName:'name'; let i = index"
+                <app-user [class]="classListItem" *ngFor="let usr of users | filter:filtered:'name'; let i = index"
                     [user]="usr" [id]="usr.id">
                 </app-user>
             </div>

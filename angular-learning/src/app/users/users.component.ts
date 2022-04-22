@@ -16,7 +16,13 @@ export class UsersComponent implements OnInit {
     private userService: UsersService
   ) { }
 
-  filteredName:any = '';
+  filtered:any = '';
+
+  // userName = new Promise((resolve, reject) => {
+  //   setTimeout(() => {
+  //     resolve('John');
+  //   }, 2000);
+  // });
 
   ngOnInit(): void {
     this.users = this.userService.users;
