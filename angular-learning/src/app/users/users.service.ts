@@ -23,7 +23,7 @@ export class UsersService {
     },
     {
       id: 1,
-      name: 'Harmonie',
+      name: 'Hermione Granger',
       email: 'harmonie@gmail.com',
       phoneNumber: '081234123476',
       passport: 876545678,
@@ -34,7 +34,36 @@ export class UsersService {
       addresses: [
         'asss', 'asasass'
       ]
+    },
+    {
+      id: 2,
+      name: 'Crème',
+      email: 'creme@gmail.com',
+      phoneNumber: '081234123476',
+      passport: 876545678,
+      age: 39,
+      gender: 'Male',
+      professions: 'Software Enginer',
+      maritalStatus: 'Maried',
+      addresses: [
+        'Jepara', 'Jawa Tengah', 'Indonesia'
+      ]
+    },
+    {
+      id: 3,
+      name: 'Mr. Arya Purnama',
+      email: 'aryapurnama@gmail.com',
+      phoneNumber: '081234123476',
+      passport: 876545678,
+      age: 29,
+      gender: 'Male',
+      professions: 'Carpenter',
+      maritalStatus: 'Single',
+      addresses: [
+        'Kudus', 'Jawa Tengah', 'Indonesia'
+      ]
     }
+
   ]
 
   constructor(

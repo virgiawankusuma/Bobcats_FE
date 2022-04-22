@@ -21,6 +21,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSliderModule} from '@angular/material/slider';
 import {NavbarComponent } from './navbar/navbar.component';
+import { NoSymbolPipe } from './no-symbol.pipe';
+import { NoSpacingPipe } from './no-spacing.pipe';
+import { NoAccentPipe } from './no-accent.pipe';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
@@ -33,7 +36,10 @@ export function HttpLoaderFactory(http: HttpClient){
     UserCreateComponent,
     UserDetailComponent,
     UserEditComponent,
-    NavbarComponent
+    NavbarComponent,
+    NoSymbolPipe,
+    NoSpacingPipe,
+    NoAccentPipe
   ],
   imports: [
     CommonModule,
