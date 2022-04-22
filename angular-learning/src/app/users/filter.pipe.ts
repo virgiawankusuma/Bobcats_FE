@@ -11,7 +11,7 @@ export class FilterPipe implements PipeTransform {
       return users;
     }
     return users.filter((user:any) => {
-      return user[prop].replace(/\s/g, '').toLowerCase().includes(keyword.toLowerCase());
+      return user[prop].replace(/\s/g, '').normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(keyword.toLowerCase());
     });
   }
 
