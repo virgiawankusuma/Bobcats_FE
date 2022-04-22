@@ -10,13 +10,9 @@ export class FilterPipe implements PipeTransform {
     if (!users.length || !keyword) {
       return users;
     }
-    const resultaArray = [];
-    for (const user of users){
-      if(user[prop] === keyword){
-        resultaArray.push(user);
-      }
-    }
-    return resultaArray;
+    return users.filter((user:any) => {
+      return user[prop].replace(/\s/g, '').toLowerCase().includes(keyword.toLowerCase());
+    });
   }
 
 }
