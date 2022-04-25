@@ -88,4 +88,5 @@ export class UsersService {
     this.users[user.id] = user;
     this.loggingService.logUserUpdated(user);
   }
+  
 }
