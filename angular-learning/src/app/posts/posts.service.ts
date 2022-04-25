@@ -42,4 +42,11 @@ export class PostsService {
         })
       )
   }
+
+  deletePosts(){
+    return this.http
+      .delete(
+        'https://jsonplaceholder.typicode.com/posts/'
+      );
+  }
 }
