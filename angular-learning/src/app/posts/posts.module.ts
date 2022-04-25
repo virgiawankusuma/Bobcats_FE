@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostsComponent } from './posts.component';
 import { PostComponent } from './post/post.component';
 import { PostEditComponent } from './post-edit/post-edit.component';
+import { PostCreateComponent } from './post-create/post-create.component';
 
 
 
@@ -11,7 +12,8 @@ import { PostEditComponent } from './post-edit/post-edit.component';
   declarations: [
     PostsComponent,
     PostComponent,
-    PostEditComponent
+    PostEditComponent,
+    PostCreateComponent
   ],
   imports: [
     CommonModule,

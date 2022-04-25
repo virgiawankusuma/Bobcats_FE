@@ -29,6 +29,6 @@ export class PostsComponent implements OnInit {
   }
 
   onAddPost() {
-    // this.router.navigate(['/posts']);
+    
   }
 }

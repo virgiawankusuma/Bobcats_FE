@@ -1,18 +1,18 @@
-<div class="container my-5">
+<div class="container my-3">
     <div class="row">
-        <div class="col-12 col-xl-6 col-lg-6">
-            <div class="mb-3">
-                <button class="btn btn-primary me-2" (click)="onFetchPosts()">
-                    Fetch Posts
-                </button>
-                <button class="btn btn-danger">
-                    Clear Posts
-                </button>
-            </div>
+        <div class="col-12 mb-4">
+            <h1>Add Posts</h1>
+            <app-post-create></app-post-create>
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 mb-4">
+            <h1>Posts</h1>
+            <div class="mb-3">
+                <button class="btn btn-outline-primary me-2" (click)="onFetchPosts()">
+                    Fetch Posts
+                </button>
+            </div>
             <ul class="list-group">
                 <app-post class="list-group-item" *ngFor="let ps of posts | async" [post]="ps">
                 </app-post>

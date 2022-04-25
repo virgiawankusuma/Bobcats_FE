@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { PostsService } from '../posts.service';
 
 @Component({
@@ -23,14 +24,39 @@ export class PostEditComponent implements OnInit {
     this.post = this.postsService.getPost(id).subscribe(post => this.post = post);
   
     this.updatePost = new FormGroup({
-      'id': new FormControl(),
-      'userId': new FormControl(),
-      'title': new FormControl(),
-      'body': new FormControl()
+      'userId': new FormControl(this.post.userId),
+      'id': new FormControl(this.post.id),
+      'title': new FormControl(this.post.title, Validators.required),
+      'body': new FormControl(this.post.body, Validators.required)
     });
   }
 
   onUpdatePost(){
+    if(this.updatePost.valid){
+      this.postsService.updatePost(this.post.id,this.updatePost.value).subscribe(
+        (response) => {
+          Swal.fire({
+            title: 'Success!',
+            text: `Your post "${response.title}" has been updated!`,
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          });
+          this.router.navigate(['/posts']);
+        },
+        (error) => {
+          Swal.fire({
+            title: 'Error!',
+            text: `Your post "${error.title}" has not been updated!`,
+            icon: 'error',
+            confirmButtonText: 'Cool'
+          });
+        }
+      );
+    }
+  }
+
+  onBack(){
+    this.router.navigate(['/posts']);
   }
 
 }

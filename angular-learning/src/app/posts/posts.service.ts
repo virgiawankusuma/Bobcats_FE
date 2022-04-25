@@ -10,24 +10,34 @@ import { Observable } from 'rxjs';
 export class PostsService {
 
   rootUrl = 'https://jsonplaceholder.typicode.com';
-  posts!:Observable<Post[]>;
+  posts!:Observable<any>;
 
   constructor(
     private http: HttpClient,
   ) { }
 
   fetchPosts(){
-    this.posts = this.http.get<Post[]>(this.rootUrl + '/posts');
+    this.posts = this.http.get(this.rootUrl + '/posts');
     return this.posts;
   }
   
   getPost(id:number){
-    this.posts = this.http.get<Post[]>(this.rootUrl + '/posts/'+id);
+    this.posts = this.http.get(this.rootUrl + '/posts/'+id);
+    return this.posts;
+  }
+
+  addPost(post:Post){
+    this.posts = this.http.post(this.rootUrl + '/posts', post);
+    return this.posts;
+  }
+
+  updatePost(id:number,post:Post){
+    this.posts = this.http.put(this.rootUrl + '/posts/'+id, post);
     return this.posts;
   }
 
   deletePost(id:number){
-    this.posts = this.http.delete<Post[]>(this.rootUrl + '/posts/'+id);
+    this.posts = this.http.delete(this.rootUrl + '/posts/'+id);
     return this.posts;
   }
 }

@@ -15,7 +15,7 @@ const routes: Routes = [
     { path: ':id', component: UserDetailComponent},
     { path: ':id/edit', component: UserEditComponent}
   ]},
-  { path: '', redirectTo: 'users', pathMatch: 'full' },
+  // { path: '', redirectTo: 'users', pathMatch: 'full' },
 ];
 
 @NgModule({

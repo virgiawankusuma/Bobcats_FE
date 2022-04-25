@@ -1,34 +1,34 @@
-<div class="container my-5">
+<div class="container my-3">
     <div class="row">
-        <div class="col-12 col-xl-6 col-lg-6">
-            <p>{{post.id}}</p>
-            <p>{{post.userId}}</p>
-            <p>{{post.title}}</p>
-            <p>{{post.body}}</p>
-            <hr>
-            <form [formGroup]="updatePost" (ngSubmit)="onUpdatePost()">
-                <div class="mb-3">
-                    <label class="form-label" for="id">ID</label>
-                    <input type="text" class="form-control" id="id" [formControlName]="'id'">
+        <div class="col-12">
+            <h1>Update Posts ID "{{post.id}}"</h1>
+            <div class="card">
+                <div class="card-body">
+                    <p>{{post.title}}</p>
+                    <p>{{post.body}}</p>
+                    <hr>
+                    <form [formGroup]="updatePost" (ngSubmit)="onUpdatePost()">
+                        <input type="hidden" class="form-control" id="id" [formControlName]="'id'">
+                        <input type="hidden" class="form-control" id="userId" [formControlName]="'userId'">
+                        <div class="mb-3">
+                            <label class="form-label" for="title">Title</label>
+                            <input type="text" class="form-control" id="title" [formControlName]="'title'">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="body">Body</label>
+                            <textarea class="form-control" id="body" [formControlName]="'body'"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn btn-primary me-2" type="submit">
+                                Update Post
+                            </button>
+                            <button class="btn btn-secondary me-2" type="button" (click)="onBack()">
+                                Back
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label" for="userId">User Id</label>
-                    <input type="text" class="form-control" id="userId" [formControlName]="'userId'">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="title">Title</label>
-                    <input type="text" class="form-control" id="title" [formControlName]="'title'">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="body">Body</label>
-                    <textarea class="form-control" id="body" [formControlName]="'body'"></textarea>
-                </div>
-                <div class="mb-3">
-                    <button class="btn btn-primary" type="submit">
-                        Update Post
-                    </button>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>
