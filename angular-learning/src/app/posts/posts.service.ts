@@ -26,7 +26,7 @@ export class PostsService {
   }
 
   fetchPosts(){
-    this.http
+    return this.http
       .get<{ [key: string]: Post }>(
         'https://jsonplaceholder.typicode.com/posts'
       )
@@ -41,7 +41,5 @@ export class PostsService {
           return postsArray;
         })
       )
-      .subscribe(posts => {
-      });
   }
 }
