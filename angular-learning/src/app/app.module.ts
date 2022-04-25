@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UsersRoutingModule } from './users/users-routing.module';
 import { UsersModule } from './users/users.module';
 import { PostsModule } from './posts/posts.module';
+import { PostsRoutingModule } from './posts/posts-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PostsModule } from './posts/posts.module';
     BrowserAnimationsModule,
     UsersRoutingModule,
     UsersModule,
-    PostsModule
+    PostsModule,
+    PostsRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,7 @@
+<a (click)="onEditPost()" class=" btn m-0 p-0 d-block link-primary text-start">
+    <h3 class="fw-bold">{{ post.title | titlecase}}</h3>
+</a>
+<p>{{ post.body }}</p>
+<button class="btn btn-sm btn-danger" (click)="onDeletePost(post.id)">
+    Delete
+</button>

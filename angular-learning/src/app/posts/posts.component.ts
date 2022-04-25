@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 
 import { Post } from './post.model';
 import { PostsService } from './posts.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-posts',
@@ -11,40 +11,24 @@ import { PostsService } from './posts.service';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
-  loadedPosts: Post[] = [];
-  isFetching = false;
+  posts:any;
 
   constructor(
-    private http: HttpClient,
-    private postsService: PostsService
+    private postsService: PostsService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private http: HttpClient
     ) {}
 
   ngOnInit() {
-    this.isFetching = true;
-    this.postsService.fetchPosts().subscribe(posts => {
-      this.isFetching = false,
-      this.loadedPosts = posts;
-    });
+    this.posts =  this.postsService.fetchPosts();
   }
-
-  onCreatePost(postData: Post) {
-    // Send Http request
-    this.postsService.createAndStorePost(postData.title, postData.body);
-  }
-
+  
   onFetchPosts() {
-    // Send Http request
-    this.isFetching = true;
-    this.postsService.fetchPosts().subscribe(posts => {
-      this.isFetching = false,
-      this.loadedPosts = posts;
-    });
+    this.posts = this.postsService.fetchPosts();
   }
 
-  onClearPosts() {
-    // Send Http request
-    this.postsService.deletePosts().subscribe(() => {
-      this.loadedPosts = [];
-    });
+  onAddPost() {
+    // this.router.navigate(['/posts']);
   }
 }

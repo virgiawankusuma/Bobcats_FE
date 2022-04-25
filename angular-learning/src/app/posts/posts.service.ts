@@ -2,51 +2,32 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Post } from './post.model';
-import { map } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostsService {
 
+  rootUrl = 'https://jsonplaceholder.typicode.com';
+  posts!:Observable<Post[]>;
+
   constructor(
     private http: HttpClient,
   ) { }
 
-  createAndStorePost(title: string, body:string){
-    const postData: Post = {title: title, body: body};
-    this.http
-      .post<{ name: string }>(
-        'https://jsonplaceholder.typicode.com/posts',
-        postData
-      )
-      .subscribe(responseData => {
-        console.log(responseData);
-      });
-  }
-
   fetchPosts(){
-    return this.http
-      .get<{ [key: string]: Post }>(
-        'https://jsonplaceholder.typicode.com/posts'
-      )
-      .pipe(
-        map(responseData => {
-          const postsArray: Post[] = [];
-          for (const key in responseData) {
-            if (responseData.hasOwnProperty(key)) {
-              postsArray.push({ ...responseData[key], id: key });
-            }
-          }
-          return postsArray;
-        })
-      )
+    this.posts = this.http.get<Post[]>(this.rootUrl + '/posts');
+    return this.posts;
+  }
+  
+  getPost(id:number){
+    this.posts = this.http.get<Post[]>(this.rootUrl + '/posts/'+id);
+    return this.posts;
   }
 
-  deletePosts(){
-    return this.http
-      .delete(
-        'https://jsonplaceholder.typicode.com/posts/'
-      );
+  deletePost(id:number){
+    this.posts = this.http.delete<Post[]>(this.rootUrl + '/posts/'+id);
+    return this.posts;
   }
 }
