@@ -29,6 +29,14 @@ export class PostEditComponent implements OnInit {
       'title': new FormControl(this.post.title, Validators.required),
       'body': new FormControl(this.post.body, Validators.required)
     });
+
+    // this.postsService.getPost(id).subscribe(post => this.post = post).add(() => 
+    // this.updatePost = new FormGroup({
+    //   'userId': new FormControl(this.post.userId),
+    //   'id': new FormControl(this.post.id),
+    //   'title': new FormControl(this.post.title, Validators.required),
+    //   'body': new FormControl(this.post.body, Validators.required)
+    // }));
   }
 
   onUpdatePost(){
@@ -42,14 +50,6 @@ export class PostEditComponent implements OnInit {
             confirmButtonText: 'Cool'
           });
           this.router.navigate(['/posts']);
-        },
-        (error) => {
-          Swal.fire({
-            title: 'Error!',
-            text: `Your post "${error.title}" has not been updated!`,
-            icon: 'error',
-            confirmButtonText: 'Cool'
-          });
         }
       );
     }
