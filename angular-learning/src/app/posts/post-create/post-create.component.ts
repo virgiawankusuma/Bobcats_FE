@@ -43,14 +43,6 @@ export class PostCreateComponent implements OnInit {
             confirmButtonText: 'Cool'
           });
           this.router.navigate(['/posts']);
-        },
-        (error) => {
-          Swal.fire({
-            title: 'Error!',
-            text: `Your post "${error.title}" has not been added!`,
-            icon: 'error',
-            confirmButtonText: 'Cool'
-          });
         }
       );
     }
