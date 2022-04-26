@@ -1,0 +1,36 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+        <mat-list>
+            <mat-list-item>
+                <h1>Menu</h1>
+            </mat-list-item>
+            <mat-list-item>
+                <button mat-stroked-button (click)="movieList()">Movie List</button>
+            </mat-list-item>
+            <mat-list-item>
+                <button mat-stroked-button (click)="actorList()">Actor List</button>
+            </mat-list-item>
+        </mat-list>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <div class="container my-3">
+            <div class="example-sidenav-content">
+                <button type="button" mat-raised-button (click)="drawer.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </div>
+            <div class="row my-3">
+                <h1>Actor List</h1>
+                <div *ngFor="let actor of actors">
+                    <div class="col-6">
+                        <mat-card class="example-card mb-3">
+                            <mat-card-title>{{actor.name}}</mat-card-title>
+                            <mat-card-subtitle>{{actor.age}}</mat-card-subtitle>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>

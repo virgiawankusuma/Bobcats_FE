@@ -7,10 +7,12 @@ import { UsersRoutingModule } from './users/users-routing.module';
 import { UsersModule } from './users/users.module';
 import { PostsModule } from './posts/posts.module';
 import { PostsRoutingModule } from './posts/posts-routing.module';
+import { MovieLibraryModule } from './movie-library/movie-library.module';
+import { MovieLibraryRoutingModule } from './movie-library/movie-library-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -18,7 +20,9 @@ import { PostsRoutingModule } from './posts/posts-routing.module';
     UsersRoutingModule,
     UsersModule,
     PostsModule,
-    PostsRoutingModule
+    PostsRoutingModule,
+    MovieLibraryModule,
+    MovieLibraryRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

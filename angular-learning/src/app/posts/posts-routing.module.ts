@@ -10,7 +10,7 @@ import { PostEditComponent } from './post-edit/post-edit.component';
 const routes: Routes = [
   { path: 'posts', component: PostsComponent},
   { path: 'posts/:id', component: PostEditComponent},
-  { path: '', redirectTo: 'posts', pathMatch: 'full' }
+  // { path: '', redirectTo: 'posts', pathMatch: 'full' }
 ]
 
 
