@@ -11,6 +11,7 @@ import { MovieLibraryModule } from './movie-library/movie-library.module';
 import { MovieLibraryRoutingModule } from './movie-library/movie-library-routing.module';
 import { MentorsModule } from './mentors/mentors.module';
 import { MentorsRoutingModule } from './mentors/mentors-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MentorsRoutingModule } from './mentors/mentors-routing.module';
     MovieLibraryModule,
     MovieLibraryRoutingModule,
     MentorsModule,
-    MentorsRoutingModule
+    MentorsRoutingModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
