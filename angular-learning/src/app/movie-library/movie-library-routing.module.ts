@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'movie-list', component: MovieLibraryComponent, children: [
     { path: ':id', component: MovieDetailComponent }
   ]},
-  { path: '', redirectTo: 'movie-list', pathMatch: 'full' },
+  // { path: '', redirectTo: 'movie-list', pathMatch: 'full' },
 ];
 
 @NgModule({

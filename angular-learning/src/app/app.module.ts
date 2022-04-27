@@ -9,6 +9,8 @@ import { PostsModule } from './posts/posts.module';
 import { PostsRoutingModule } from './posts/posts-routing.module';
 import { MovieLibraryModule } from './movie-library/movie-library.module';
 import { MovieLibraryRoutingModule } from './movie-library/movie-library-routing.module';
+import { MentorsModule } from './mentors/mentors.module';
+import { MentorsRoutingModule } from './mentors/mentors-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { MovieLibraryRoutingModule } from './movie-library/movie-library-routing
     PostsModule,
     PostsRoutingModule,
     MovieLibraryModule,
-    MovieLibraryRoutingModule
+    MovieLibraryRoutingModule,
+    MentorsModule,
+    MentorsRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
