@@ -1,0 +1,88 @@
+<mat-dialog-content class="mat-typography">
+    <div class="language-picker-area mb-3">
+        <div class="picker-label">{{'addUser.choose_language'| translate }}</div>
+        <select class="language-picker" #langselect (change)="translate.use(langselect.value)">
+            <option *ngFor="let lang of translate.getLangs()" [value]="lang">{{lang}}</option>
+        </select>
+    </div>
+    <form class="example-form" [formGroup]="addUser" (ngSubmit)="onSubmit()">
+        <mat-form-field class="example-full-width w-100 mb-3" appearance="fill">
+            <mat-label>{{'addUser.email'| translate }}</mat-label>
+            <input matInput placeholder="Ex. johndoe@mail.com" [formControlName]="'email'">
+            <mat-error *ngIf="!addUser.valid && addUser.touched">
+                {{'addUser.email_notvalid'| translate }}
+            </mat-error>
+        </mat-form-field>
+        <br>
+
+        <mat-card-content>
+            <div class="example-label-container mb-2">
+                <mat-label class="example-radio-group-label">{{'addUser.civility'| translate }}</mat-label>
+            </div>
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                [formControlName]="'civility'">
+                <mat-radio-button class="me-3 mb-2" *ngFor="let civility of civilities" [value]="civility">
+                    {{civility}}
+                </mat-radio-button>
+            </mat-radio-group>
+        </mat-card-content>
+        <br>
+
+        <mat-form-field class="example-full-width w-100 mb-3" appearance="fill">
+            <mat-label>{{'addUser.first_name'| translate }}</mat-label>
+            <input matInput placeholder="Ex. John" [formControlName]="'first_name'">
+            <mat-error *ngIf="!addUser.valid && addUser.touched">
+                {{'addUser.first_name_error'| translate }}
+            </mat-error>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width w-100 mb-3" appearance="fill">
+            <mat-label>{{'addUser.last_name'| translate }}</mat-label>
+            <input matInput placeholder="Ex. Doe" [formControlName]="'last_name'">
+            <mat-error *ngIf="!addUser.valid && addUser.touched">
+                {{'addUser.last_name_error'| translate }}
+            </mat-error>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width w-100 mb-3" appearance="fill">
+            <mat-label>{{'addUser.date_of_birth'| translate }}</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="!addUser.valid && addUser.touched">
+                {{'addUser.date_of_birth_error'| translate }}
+            </mat-error>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width w-100 mb-3" appearance="fill">
+            <mat-label>{{'addUser.gender' | translate}}</mat-label>
+            <mat-select [formControlName]="'gender'">
+                <mat-option *ngFor="let gender of genders" [value]="gender">
+                    {{gender}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width w-100 mb-3" appearance="fill">
+            <mat-label>{{'addUser.status' | translate}}</mat-label>
+            <mat-select [formControlName]="'user_status'">
+                <mat-option *ngFor="let status of statuses" [value]="status">
+                    {{status}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+
+        <mat-dialog-actions align="end">
+            <button mat-button mat-dialog-close>Cancel</button>
+            <button mat-flat-button color="primary">
+                {{'addUser.add_user' | translate}}
+            </button>
+        </mat-dialog-actions>
+    </form>
+</mat-dialog-content>
