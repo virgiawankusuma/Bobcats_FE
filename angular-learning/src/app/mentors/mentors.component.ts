@@ -18,11 +18,7 @@ export class MentorsComponent implements OnInit {
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(AddComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    this.dialog.open(AddComponent);
   }
 
 }
