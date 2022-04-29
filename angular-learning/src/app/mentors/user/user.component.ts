@@ -19,25 +19,18 @@ export class UserComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
-  
-  private dataSubject = new Subject<any>();
 
   constructor(
     private mentorsService: MentorsService
   ) { }
 
   ngOnInit(): void {
-    this.loading = true;
     this.mentorsService.getMentors().subscribe(data => {
       this.dataSource.data = data;
       this.dataSource.paginator = this.paginator;
       this.loading = false;
-    });
-
-    this.mentorsService.cobaBaru$.subscribe(data =>{
       console.log(data);
     });
-
 
   }
 

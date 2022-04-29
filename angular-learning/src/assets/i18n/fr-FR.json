@@ -11,6 +11,11 @@
         "last_name_error": "Le nom de famille est requis",
         "date_of_birth": "Date de naissance",
         "gender":"Le sexe",
+        "company":{
+            "name":"Nom de l'entreprise",
+            "name_error": "Nom de l'entreprise est requis",
+            "user_type":"Type d'utilisateur"
+        },
         "status": "Statut",
         "add_user": "Ajouter un utilisateur"
     }

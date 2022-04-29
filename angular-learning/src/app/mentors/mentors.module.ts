@@ -9,7 +9,6 @@ import { MentorsRoutingModule } from './mentors-routing.module';
 import { MentorsComponent } from './mentors.component';
 import { UserComponent } from './user/user.component';
 import { AddComponent } from './add/add.component';
-import { LoggingService } from './logging.service';
 
 // angular material
 import { MatTableModule } from '@angular/material/table';
@@ -68,7 +67,6 @@ export function HttpLoaderFactory(http: HttpClient){
   ],
   exports: [
     MentorsComponent
-  ],
-  providers: [LoggingService]
+  ]
 })
 export class MentorsModule { }

@@ -11,6 +11,11 @@
         "last_name_error": "Last Name is required",
         "date_of_birth": "Date of Birth",
         "gender": "Gender",
+        "company":{
+            "name":"Company Name",
+            "name_error": "Company Name is required",
+            "user_type":"Usertype"
+        },
         "status": "Status",
         "add_user": "Add User"
     }

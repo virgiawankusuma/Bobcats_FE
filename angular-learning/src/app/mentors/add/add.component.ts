@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import Swal from 'sweetalert2';
 import { MentorsService } from '../mentors.service';
@@ -13,7 +13,8 @@ export class AddComponent implements OnInit {
 
   civilities = ['MR', 'MRS', 'MISS', 'MS', 'DR'];
   genders = ['Male','Female', 'Transgender', 'Non-binary/non-conforming', 'Prefer not to respond'];
-  statuses = ['Active', 'Pending'];
+  statuses = ['active', 'pending'];
+  usertypes = ['Mentor', 'Mentee'];
 
   lang:any
 
@@ -29,21 +30,24 @@ export class AddComponent implements OnInit {
       translate.use(browserLang.match(/en-US|fr-FR/) ? browserLang : 'en-US');}
 
   ngOnInit(): void {
-    const userId = new FormControl(1);
-
       this.addUser = new FormGroup({
-        '_id': userId,
+        '_id': new FormControl((this.mentorsService.mentorsNew.value.length+1).toString()),
         'email': new FormControl(null, [Validators.required, Validators.email]),
         'civility': new FormControl(null, [Validators.required]),
         'first_name': new FormControl(null, [Validators.required]),
         'last_name': new FormControl(null, [Validators.required]),
-        'date_of_birth': new FormControl(20, [Validators.required]),
+        'date_of_birth': new FormControl(null, [Validators.required]),
         'gender': new FormControl(Validators.required),
+        'company': new FormGroup({
+          'name': new FormControl(null, [Validators.required]),
+          'user_type': new FormControl(null, [Validators.required]),
+        }),
         'user_status': new FormControl(Validators.required),
       });
-  }
 
-  onSubmit(){
+    }
+    
+    onSubmit(){
       if (this.addUser.valid) {
         this.mentorsService.addUser(this.addUser.value);
         this.addUser.reset();
@@ -62,6 +66,5 @@ export class AddComponent implements OnInit {
         });
       }
       
-      this.mentorsService.addCobaBaru(this.addUser.value);
   }
 }
